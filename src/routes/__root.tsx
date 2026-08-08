@@ -81,14 +81,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" },
-      { rel: "preconnect", href: "https://images.unsplash.com" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap", media: "print", onLoad: "this.media='all'" } as unknown as { rel: string; href: string },
       { rel: "dns-prefetch", href: "https://images.unsplash.com" },
-      { rel: "preconnect", href: "https://cdn.utmify.com.br" },
       { rel: "dns-prefetch", href: "https://cdn.utmify.com.br" },
-      { rel: "preconnect", href: "https://connect.facebook.net" },
       { rel: "dns-prefetch", href: "https://connect.facebook.net" },
-      { rel: "preconnect", href: "https://pay.wiapy.com" },
+      { rel: "dns-prefetch", href: "https://pay.wiapy.com" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       {
         rel: "stylesheet",
@@ -104,16 +101,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "data-utmify-prevent-subids": "",
       },
       {
-        children: `!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1736109754495284');
-fbq('track', 'PageView');`,
+        children: `setTimeout(function(){
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1736109754495284');
+          fbq('track', 'PageView');
+        }, 1200);`,
       },
     ],
   }),

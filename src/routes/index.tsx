@@ -335,16 +335,6 @@ function Index() {
             <div
               className="relative w-full overflow-hidden rounded-[28px] bg-black shadow-inner aspect-[9/16]"
             >
-              <img
-                src={heroPoster}
-                alt="Demonstração dos 25 MIL Moldes no celular"
-                width={380}
-                height={675}
-                loading="eager"
-                decoding="sync"
-                {...({ fetchpriority: "high" } as Record<string, string>)}
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none z-10 hidden"
-              />
               <video
                 src={heroVideo}
                 poster={heroPoster}
