@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="partyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c853"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#partyGrad)"/>
+  <!-- Party Popper / Hat -->
+  <path d="M 21 47 L 43 47 L 32 17 Z" fill="#FFD700" stroke="#FFFFFF" stroke-width="2"/>
+  <!-- Decorative Stripes -->
+  <path d="M 25 39 L 37 39" stroke="#FF4081" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 28 30 L 36 30" stroke="#00E5FF" stroke-width="3" stroke-linecap="round"/>
+  <!-- Pom Pom Top -->
+  <circle cx="32" cy="14" r="4.5" fill="#FF4081"/>
+  <!-- Confetti Elements -->
+  <circle cx="15" cy="22" r="2.5" fill="#FFD700"/>
+  <circle cx="49" cy="22" r="2.5" fill="#00E5FF"/>
+  <circle cx="13" cy="36" r="2" fill="#FF4081"/>
+  <circle cx="51" cy="36" r="2" fill="#FFD700"/>
+</svg>
