@@ -186,8 +186,8 @@
 }
 
 @keyframes brand-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(0, 200, 83, 0.4); }
+  50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0, 200, 83, 0.65); }
 }
 
 .animate-topbar {
@@ -210,15 +210,16 @@
 }
 
 .btn-cta {
-  background-color: #00c853;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: brand-pulse 2.2s infinite ease-in-out;
-  box-shadow: 0 4px 14px rgba(0, 200, 83, 0.35);
+  background-color: #00c853 !important;
+  color: #ffffff !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: brand-pulse 1.8s infinite ease-in-out !important;
+  box-shadow: 0 4px 14px rgba(0, 200, 83, 0.4);
 }
 .btn-cta:hover {
-  background-color: #00b047;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 200, 83, 0.45);
+  background-color: #00b047 !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 200, 83, 0.65);
 }
 .btn-cta:active { transform: scale(0.98); }
 
@@ -232,30 +233,6 @@
   background-color: #00c853;
   color: #FFFFFF;
   transform: scale(1.02);
-}
-
-.btn-cta {
-  background-color: #10b981;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: brand-pulse 2.5s infinite;
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
-}
-.btn-cta:hover {
-  background-color: #059669;
-  filter: brightness(1.1);
-}
-.btn-cta:active { transform: scale(0.98); }
-
-.btn-cta-outline {
-  background-color: #FFFFFF;
-  color: #10b981;
-  border: 2px solid #10b981;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-.btn-cta-outline:hover {
-  background-color: #10b981;
-  color: #FFFFFF;
-  transform: scale(1.03);
 }
 
 @keyframes marquee-x {

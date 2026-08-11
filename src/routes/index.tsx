@@ -324,39 +324,28 @@ function Index() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          {/* SMARTPHONE FRAME MOCKUP */}
-          <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] p-3 sm:p-4 rounded-[40px] bg-slate-900 border-[5px] border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] ring-1 ring-white/20">
-            {/* Notch / Speaker */}
-            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-slate-950 rounded-b-xl z-20 flex items-center justify-center">
-              <div className="w-6 h-1 bg-slate-800 rounded-full" />
-            </div>
-
-            {/* Screen Video Container */}
-            <div
-              className="relative w-full overflow-hidden rounded-[28px] bg-black shadow-inner aspect-[9/16]"
-            >
-              <video
-                src={heroVideo}
-                poster={heroPoster}
-                loop
-                playsInline
-                {...({ "webkit-playsinline": "true" } as Record<string, string>)}
-                preload="none"
-                controls
-                disablePictureInPicture
-                width={420}
-                height={747}
-                className="absolute inset-0 h-full w-full object-cover"
-                onPointerDown={(event) => {
-                  event.currentTarget.muted = false;
-                  event.currentTarget.volume = 1;
-                }}
-                onPlay={(event) => {
-                  event.currentTarget.muted = false;
-                  event.currentTarget.volume = 1;
-                }}
-              />
-            </div>
+          <div className="relative w-full max-w-[340px] sm:max-w-[380px] overflow-hidden rounded-2xl bg-black shadow-xl aspect-[9/16]">
+            <video
+              src={heroVideo}
+              poster={heroPoster}
+              loop
+              playsInline
+              {...({ "webkit-playsinline": "true" } as Record<string, string>)}
+              preload="none"
+              controls
+              disablePictureInPicture
+              width={420}
+              height={747}
+              className="absolute inset-0 h-full w-full object-cover"
+              onPointerDown={(event) => {
+                event.currentTarget.muted = false;
+                event.currentTarget.volume = 1;
+              }}
+              onPlay={(event) => {
+                event.currentTarget.muted = false;
+                event.currentTarget.volume = 1;
+              }}
+            />
           </div>
         </div>
 
@@ -503,10 +492,6 @@ function Index() {
                     {text}
                   </p>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-extrabold text-[#00c853]">
-                  <span>⚡ 100% Rápido e Descomplicado</span>
-                </div>
               </div>
             ))}
           </div>
@@ -541,59 +526,6 @@ function Index() {
         </div>
       </section>
 
-      {/* SEÇÃO DE BÔNUS EXCLUSIVOS */}
-      <section className="cv-auto bg-gradient-to-b from-emerald-50/70 via-white to-emerald-50/40 border-y border-emerald-100/80 py-16 sm:py-20 text-slate-900 relative overflow-hidden shadow-sm">
-        <div className="relative mx-auto w-full max-w-[900px] px-5 text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#00c853] px-4 py-1 text-xs font-black uppercase tracking-wider text-white shadow-md animate-pulse">
-            🎁 5 BÔNUS EXCLUSIVOS DE PRESENTE
-          </span>
-
-          <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl text-slate-900">
-            Economize R$ 249,50 em Bônus <span className="bg-[#00c853] text-white px-3.5 py-1 rounded-xl shadow-md uppercase tracking-tight font-black inline-block transform -rotate-1">100% GRÁTIS SÓ HOJE!</span>
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-base text-slate-600 font-semibold">
-            Garanta o <span className="font-extrabold text-[#00c853]">Pacote Premium VIP</span> e receba estes 5 bônus exclusivos sem pagar nem 1 centavo a mais:
-          </p>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 text-left">
-            {bonusItems.map(({ badge, title, desc, price, icon: Icon }) => (
-              <div
-                key={badge}
-                className="group relative flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 p-5.5 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00c853] hover:shadow-xl"
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-emerald-800">
-                      {badge}
-                    </span>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-xs font-bold text-slate-400 line-through">De {price}</span>
-                      <span className="rounded-full bg-[#00c853] px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white shadow-sm">
-                        🔥 GRÁTIS SÓ HOJE
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 flex items-start gap-3.5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 border border-emerald-200 text-[#00c853] shadow-sm group-hover:scale-110 group-hover:bg-[#00c853] group-hover:text-white transition-all duration-300">
-                      <Icon className="h-6 w-6" strokeWidth={2.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-extrabold text-slate-900 leading-snug group-hover:text-[#00c853] transition-colors">
-                        {title}
-                      </h3>
-                      <p className="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">
-                        {desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* PLANOS */}
       <section id="plano" className="mx-auto w-full max-w-[900px] px-5 py-14 sm:py-16">
         <div className="mb-8 flex flex-col items-center gap-2 rounded-2xl bg-slate-900 text-white border border-slate-800 px-4 py-3.5 text-center shadow-lg">
@@ -614,38 +546,6 @@ function Index() {
         </div>
 
         <div className="grid items-start gap-6 md:grid-cols-2">
-          {/* BÁSICO */}
-          <div className="flex h-full flex-col rounded-2xl bg-white border border-slate-200 p-6 shadow-md">
-            <h3 className="text-lg font-extrabold text-slate-900">Pacote Básico</h3>
-            <p className="mt-1 text-sm text-slate-500">Arquivos digitais simples em PDF</p>
-            <div className="mt-4">
-              <p className="text-3xl font-extrabold text-slate-900">R$ 3,99</p>
-              <p className="text-xs text-slate-500">Pagamento único</p>
-            </div>
-            <ul className="mt-5 space-y-2 text-left">
-              {basicIncluded.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-slate-700 font-medium">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={3} />
-                  <span>{f}</span>
-                </li>
-              ))}
-              {basicExcluded.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-slate-400 line-through">
-                  <X className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" strokeWidth={3} />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex-1" />
-            <a
-              href={CHECKOUT_BASIC_URL}
-              onClick={handleBasicClick}
-              className="block w-full rounded-full px-6 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide border-2 border-slate-300 text-slate-800 hover:bg-slate-100 hover:border-slate-400 transition-all"
-            >
-              Quero apenas o básico
-            </a>
-          </div>
-
           {/* PREMIUM VIP */}
           <div className="relative flex h-full flex-col rounded-2xl border-[3px] border-emerald-500 bg-white p-6 pt-9 shadow-xl">
             <span className="absolute -top-3 left-1/2 w-[92%] -translate-x-1/2 rounded-full bg-emerald-600 px-3 py-1 text-center text-[10px] font-extrabold uppercase leading-tight tracking-wide text-white sm:text-[11px] shadow-md animate-pulse">
@@ -690,6 +590,38 @@ function Index() {
             <p className="mt-3 text-center text-[11px] font-semibold text-slate-500">
               🔒 Pagamento 100% Seguro | ⚡ Entrega Imediata no Zap e E-mail | 🛡️ 7 Dias de Garantia
             </p>
+          </div>
+
+          {/* BÁSICO */}
+          <div className="flex h-full flex-col rounded-2xl bg-white border border-slate-200 p-6 shadow-md">
+            <h3 className="text-lg font-extrabold text-slate-900">Pacote Básico</h3>
+            <p className="mt-1 text-sm text-slate-500">Arquivos digitais simples em PDF</p>
+            <div className="mt-4">
+              <p className="text-3xl font-extrabold text-slate-900">R$ 3,99</p>
+              <p className="text-xs text-slate-500">Pagamento único</p>
+            </div>
+            <ul className="mt-5 space-y-2 text-left">
+              {basicIncluded.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={3} />
+                  <span>{f}</span>
+                </li>
+              ))}
+              {basicExcluded.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-slate-400 line-through">
+                  <X className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" strokeWidth={3} />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex-1" />
+            <a
+              href={CHECKOUT_BASIC_URL}
+              onClick={handleBasicClick}
+              className="block w-full rounded-full px-6 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide border-2 border-slate-300 text-slate-800 hover:bg-slate-100 hover:border-slate-400 transition-all"
+            >
+              Quero apenas o básico
+            </a>
           </div>
         </div>
       </section>
