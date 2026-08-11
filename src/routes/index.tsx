@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroVideo from "@/assets/hero-video.mp4";
-import heroPoster from "@/assets/hero-poster.jpg";
+import heroPoster from "@/assets/hero-poster.webp";
 import party1 from "@/assets/party-1.webp";
 import party2 from "@/assets/party-2.webp";
 import party3 from "@/assets/party-3.webp";
