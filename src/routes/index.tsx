@@ -300,8 +300,6 @@ function Index() {
     setShowUpsell(true);
   };
 
-  const [isPlaying, setIsPlaying] = useState(false);
-
   return (
     <main className="min-h-screen bg-slate-50 pb-24 pt-0 font-sans text-slate-800 antialiased sm:pb-0">
       {/* FIXED TOPBAR */}
@@ -326,41 +324,39 @@ function Index() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          <div className="relative w-full max-w-[340px] sm:max-w-[380px] overflow-hidden rounded-2xl bg-black shadow-xl aspect-[9/16]">
-            {!isPlaying && (
-              <img
-                src={heroPoster}
-                alt="Demonstração em vídeo dos 25 MIL Moldes"
-                width={380}
-                height={675}
-                loading="eager"
-                decoding="sync"
-                {...({ fetchpriority: "high" } as Record<string, string>)}
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none z-10"
+          {/* SMARTPHONE FRAME MOCKUP */}
+          <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] p-3 sm:p-4 rounded-[40px] bg-slate-900 border-[5px] border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] ring-1 ring-white/20">
+            {/* Notch / Speaker */}
+            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-slate-950 rounded-b-xl z-20 flex items-center justify-center">
+              <div className="w-6 h-1 bg-slate-800 rounded-full" />
+            </div>
+
+            {/* Screen Video Container */}
+            <div
+              className="relative w-full overflow-hidden rounded-[28px] bg-black shadow-inner aspect-[9/16]"
+            >
+              <video
+                src={heroVideo}
+                poster={heroPoster}
+                loop
+                playsInline
+                {...({ "webkit-playsinline": "true" } as Record<string, string>)}
+                preload="none"
+                controls
+                disablePictureInPicture
+                width={420}
+                height={747}
+                className="absolute inset-0 h-full w-full object-cover"
+                onPointerDown={(event) => {
+                  event.currentTarget.muted = false;
+                  event.currentTarget.volume = 1;
+                }}
+                onPlay={(event) => {
+                  event.currentTarget.muted = false;
+                  event.currentTarget.volume = 1;
+                }}
               />
-            )}
-            <video
-              src={heroVideo}
-              poster={heroPoster}
-              loop
-              playsInline
-              {...({ "webkit-playsinline": "true" } as Record<string, string>)}
-              preload="none"
-              controls
-              disablePictureInPicture
-              width={420}
-              height={747}
-              className="absolute inset-0 h-full w-full object-cover"
-              onPlay={(event) => {
-                setIsPlaying(true);
-                event.currentTarget.muted = false;
-                event.currentTarget.volume = 1;
-              }}
-              onPointerDown={(event) => {
-                event.currentTarget.muted = false;
-                event.currentTarget.volume = 1;
-              }}
-            />
+            </div>
           </div>
         </div>
 
