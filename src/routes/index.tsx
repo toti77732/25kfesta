@@ -300,6 +300,8 @@ function Index() {
     setShowUpsell(true);
   };
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <main className="min-h-screen bg-slate-50 pb-24 pt-0 font-sans text-slate-800 antialiased sm:pb-0">
       {/* FIXED TOPBAR */}
@@ -325,6 +327,18 @@ function Index() {
 
         <div className="mt-8 flex justify-center">
           <div className="relative w-full max-w-[340px] sm:max-w-[380px] overflow-hidden rounded-2xl bg-black shadow-xl aspect-[9/16]">
+            {!isPlaying && (
+              <img
+                src={heroPoster}
+                alt="Demonstração em vídeo dos 25 MIL Moldes"
+                width={380}
+                height={675}
+                loading="eager"
+                decoding="sync"
+                {...({ fetchpriority: "high" } as Record<string, string>)}
+                className="absolute inset-0 h-full w-full object-cover pointer-events-none z-10"
+              />
+            )}
             <video
               src={heroVideo}
               poster={heroPoster}
@@ -337,11 +351,12 @@ function Index() {
               width={420}
               height={747}
               className="absolute inset-0 h-full w-full object-cover"
-              onPointerDown={(event) => {
+              onPlay={(event) => {
+                setIsPlaying(true);
                 event.currentTarget.muted = false;
                 event.currentTarget.volume = 1;
               }}
-              onPlay={(event) => {
+              onPointerDown={(event) => {
                 event.currentTarget.muted = false;
                 event.currentTarget.volume = 1;
               }}
